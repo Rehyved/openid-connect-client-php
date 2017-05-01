@@ -3,7 +3,7 @@
 namespace com\rehyved\openid\client\token;
 
 
-use com\rehyved\openid\client\GrantTypes;
+use com\rehyved\openid\GrantTypes;
 use http\HttpRequest;
 use http\HttpStatus;
 

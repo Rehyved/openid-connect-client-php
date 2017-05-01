@@ -1,5 +1,5 @@
 <?php
-namespace com\rehyved\openid\client;
+namespace com\rehyved\openid;
 
 
 class GrantTypes
