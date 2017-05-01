@@ -65,11 +65,145 @@ class JsonWebKey
         $this->y = $key->y ?? null;
     }
 
+    /**
+     * Gets the 'alg' (KeyType)
+     * @return mixed
+     */
+    public function getAlg()
+    {
+        return $this->alg;
+    }
+
+    /**
+     * Sets the 'alg' (KeyType)
+     * @param mixed $alg
+     */
+    public function setAlg($alg)
+    {
+        $this->alg = $alg;
+    }
+
+    /**
+     * Gets the 'crv' (ECC - Curve)
+     * @return mixed
+     */
+    public function getCrv()
+    {
+        return $this->crv;
+    }
+
+    /**
+     * Sets the 'crv' (ECC - Curve)
+     * @param mixed $crv
+     */
+    public function setCrv($crv)
+    {
+        $this->crv = $crv;
+    }
+
+    /**
+     * Gets the 'd' (ECC - Private Key OR RSA - Private Exponent)..
+     * @return mixed
+     */
+    public function getD()
+    {
+        return $this->d;
+    }
+
+    /**
+     * Sets the 'd' (ECC - Private Key OR RSA - Private Exponent)..
+     * @param mixed $d
+     */
+    public function setD($d)
+    {
+        $this->d = $d;
+    }
+
+    /**
+     * Gets the 'dp' (RSA - First Factor CRT Exponent)..
+     * @return mixed
+     */
+    public function getDp()
+    {
+        return $this->dp;
+    }
+
+    /**
+     * Sets the 'dp' (RSA - First Factor CRT Exponent)..
+     * @param mixed $dp
+     */
+    public function setDp($dp)
+    {
+        $this->dp = $dp;
+    }
+
+    /**
+     * Gets the 'dq' (RSA - Second Factor CRT Exponent)..
+     * @return mixed
+     */
+    public function getDq()
+    {
+        return $this->dq;
+    }
+
+    /**
+     * Sets the 'dq' (RSA - Second Factor CRT Exponent)..
+     * @param mixed $dq
+     */
+    public function setDq($dq)
+    {
+        $this->dq = $dq;
+    }
+
+    /**
+     * Gets the 'e' (RSA - Exponent)..
+     * @return mixed
+     */
+    public function getE()
+    {
+        return $this->e;
+    }
+
+    /**
+     * Sets the 'e' (RSA - Exponent)..
+     * @param mixed $e
+     */
+    public function setE($e)
+    {
+        $this->e = $e;
+    }
+
+    /**
+     * Gets the 'k' (Symmetric - Key Value)..
+     * @return mixed
+     */
+    public function getK()
+    {
+        return $this->k;
+    }
+
+    /**
+     * Sets the 'k' (Symmetric - Key Value)..
+     * @param mixed $k
+     */
+    public function setK($k)
+    {
+        $this->k = $k;
+    }
+
+    /**
+     * Gets the 'key_ops' (Key Operations)..
+     * @return array
+     */
     public function getKeyOps()
     {
         return $this->keyOps;
     }
 
+    /**
+     * Sets the 'key_ops' (Key Operations)..
+     * @param array $keyOps
+     */
     public function setKeyOps(array $keyOps)
     {
         if ($keyOps == null) {
@@ -79,6 +213,168 @@ class JsonWebKey
         foreach ($keyOps as $keyOp) {
             $this->keyOps[] = $keyOp;
         }
+    }
+
+    /**
+     * Gets the 'kid' (Key ID)..
+     * @return mixed
+     */
+    public function getKid()
+    {
+        return $this->kid;
+    }
+
+    /**
+     * Sets the 'kid' (Key ID)..
+     * @param mixed $kid
+     */
+    public function setKid($kid)
+    {
+        $this->kid = $kid;
+    }
+
+    /**
+     * Gets the 'kty' (Key Type)..
+     * @return mixed
+     */
+    public function getKty()
+    {
+        return $this->kty;
+    }
+
+    /**
+     * Sets the 'kty' (Key Type)..
+     * @param mixed $kty
+     */
+    public function setKty($kty)
+    {
+        $this->kty = $kty;
+    }
+
+    /**
+     * Gets the 'n' (RSA - Modulus)..
+     * @return mixed
+     */
+    public function getN()
+    {
+        return $this->n;
+    }
+
+    /**
+     * Sets the 'n' (RSA - Modulus)..
+     * @param mixed $n
+     */
+    public function setN($n)
+    {
+        $this->n = $n;
+    }
+
+    /**
+     * Gets the 'oth' (RSA - Other Primes Info)..
+     * @return mixed
+     */
+    public function getOth()
+    {
+        return $this->oth;
+    }
+
+    /**
+     * Sets the 'oth' (RSA - Other Primes Info)..
+     * @param mixed $oth
+     */
+    public function setOth($oth)
+    {
+        $this->oth = $oth;
+    }
+
+    /**
+     * Gets the 'p' (RSA - First Prime Factor)..
+     * @return mixed
+     */
+    public function getP()
+    {
+        return $this->p;
+    }
+
+    /**
+     * Sets the 'p' (RSA - First Prime Factor)..
+     * @param mixed $p
+     */
+    public function setP($p)
+    {
+        $this->p = $p;
+    }
+
+    /**
+     * Gets the 'q' (RSA - Second  Prime Factor)..
+     * @return mixed
+     */
+    public function getQ()
+    {
+        return $this->q;
+    }
+
+    /**
+     * Sets the 'q' (RSA - Second  Prime Factor)..
+     * @param mixed $q
+     */
+    public function setQ($q)
+    {
+        $this->q = $q;
+    }
+
+    /**
+     * Gets the 'qi' (RSA - First CRT Coefficient)..
+     * @return mixed
+     */
+    public function getQi()
+    {
+        return $this->qi;
+    }
+
+    /**
+     * Sets the 'qi' (RSA - First CRT Coefficient)..
+     * @param mixed $qi
+     */
+    public function setQi($qi)
+    {
+        $this->qi = $qi;
+    }
+
+    /**
+     * Gets the 'use' (Public Key Use)..
+     * @return mixed
+     */
+    public function getUse()
+    {
+        return $this->use;
+    }
+
+    /**
+     * Sets the 'use' (Public Key Use)..
+     * @param mixed $use
+     */
+    public function setUse($use)
+    {
+        $this->use = $use;
+    }
+
+    /**
+     * Gets the 'x' (ECC - X Coordinate)..
+     * @return mixed
+     */
+    public function getX()
+    {
+        return $this->x;
+    }
+
+    /**
+     * Sets the 'x' (ECC - X Coordinate)..
+     * @param mixed $x
+     */
+    public function setX($x)
+    {
+        $this->x = $x;
     }
 
     public function getX5c(): array
@@ -91,6 +387,78 @@ class JsonWebKey
         foreach ($clauses as $clause) {
             $this->certificateClauses[] = $clause;
         }
+    }
+
+    /**
+     * Gets the 'x5t' (X.509 Certificate SHA-1 thumbprint)..
+     * @return mixed
+     */
+    public function getX5t()
+    {
+        return $this->x5t;
+    }
+
+    /**
+     * Sets the 'x5t' (X.509 Certificate SHA-1 thumbprint)..
+     * @param mixed $x5t
+     */
+    public function setX5t($x5t)
+    {
+        $this->x5t = $x5t;
+    }
+
+    /**
+     * Gets the 'x5t#S256' (X.509 Certificate SHA-1 thumbprint)..
+     * @return mixed
+     */
+    public function getX5tS256()
+    {
+        return $this->x5tS256;
+    }
+
+    /**
+     * Sets the 'x5t#S256' (X.509 Certificate SHA-1 thumbprint)..
+     * @param mixed $x5tS256
+     */
+    public function setX5tS256($x5tS256)
+    {
+        $this->x5tS256 = $x5tS256;
+    }
+
+    /**
+     * Gets 'x5u' (X.509 URL)..
+     * @return mixed
+     */
+    public function getX5u()
+    {
+        return $this->x5u;
+    }
+
+    /**
+     * Sets the 'x5u' (X.509 URL)..
+     * @param mixed $x5u
+     */
+    public function setX5u($x5u)
+    {
+        $this->x5u = $x5u;
+    }
+
+    /**
+     * Gets the 'y' (ECC - Y Coordinate)..
+     * @return mixed
+     */
+    public function getY()
+    {
+        return $this->y;
+    }
+
+    /**
+     * Sets the 'y' (ECC - Y Coordinate)..
+     * @param mixed $y
+     */
+    public function setY($y)
+    {
+        $this->y = $y;
     }
 
     public function getKeySize(): int
@@ -115,325 +483,5 @@ class JsonWebKey
         } else {
             return false;
         }
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAlg()
-    {
-        return $this->alg;
-    }
-
-    /**
-     * @param mixed $alg
-     */
-    public function setAlg($alg)
-    {
-        $this->alg = $alg;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCrv()
-    {
-        return $this->crv;
-    }
-
-    /**
-     * @param mixed $crv
-     */
-    public function setCrv($crv)
-    {
-        $this->crv = $crv;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getD()
-    {
-        return $this->d;
-    }
-
-    /**
-     * @param mixed $d
-     */
-    public function setD($d)
-    {
-        $this->d = $d;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDp()
-    {
-        return $this->dp;
-    }
-
-    /**
-     * @param mixed $dp
-     */
-    public function setDp($dp)
-    {
-        $this->dp = $dp;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDq()
-    {
-        return $this->dq;
-    }
-
-    /**
-     * @param mixed $dq
-     */
-    public function setDq($dq)
-    {
-        $this->dq = $dq;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getE()
-    {
-        return $this->e;
-    }
-
-    /**
-     * @param mixed $e
-     */
-    public function setE($e)
-    {
-        $this->e = $e;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getK()
-    {
-        return $this->k;
-    }
-
-    /**
-     * @param mixed $k
-     */
-    public function setK($k)
-    {
-        $this->k = $k;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getKid()
-    {
-        return $this->kid;
-    }
-
-    /**
-     * @param mixed $kid
-     */
-    public function setKid($kid)
-    {
-        $this->kid = $kid;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getKty()
-    {
-        return $this->kty;
-    }
-
-    /**
-     * @param mixed $kty
-     */
-    public function setKty($kty)
-    {
-        $this->kty = $kty;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getN()
-    {
-        return $this->n;
-    }
-
-    /**
-     * @param mixed $n
-     */
-    public function setN($n)
-    {
-        $this->n = $n;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOth()
-    {
-        return $this->oth;
-    }
-
-    /**
-     * @param mixed $oth
-     */
-    public function setOth($oth)
-    {
-        $this->oth = $oth;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getP()
-    {
-        return $this->p;
-    }
-
-    /**
-     * @param mixed $p
-     */
-    public function setP($p)
-    {
-        $this->p = $p;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQ()
-    {
-        return $this->q;
-    }
-
-    /**
-     * @param mixed $q
-     */
-    public function setQ($q)
-    {
-        $this->q = $q;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQi()
-    {
-        return $this->qi;
-    }
-
-    /**
-     * @param mixed $qi
-     */
-    public function setQi($qi)
-    {
-        $this->qi = $qi;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUse()
-    {
-        return $this->use;
-    }
-
-    /**
-     * @param mixed $use
-     */
-    public function setUse($use)
-    {
-        $this->use = $use;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getX()
-    {
-        return $this->x;
-    }
-
-    /**
-     * @param mixed $x
-     */
-    public function setX($x)
-    {
-        $this->x = $x;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getX5t()
-    {
-        return $this->x5t;
-    }
-
-    /**
-     * @param mixed $x5t
-     */
-    public function setX5t($x5t)
-    {
-        $this->x5t = $x5t;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getX5tS256()
-    {
-        return $this->x5tS256;
-    }
-
-    /**
-     * @param mixed $x5tS256
-     */
-    public function setX5tS256($x5tS256)
-    {
-        $this->x5tS256 = $x5tS256;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getX5u()
-    {
-        return $this->x5u;
-    }
-
-    /**
-     * @param mixed $x5u
-     */
-    public function setX5u($x5u)
-    {
-        $this->x5u = $x5u;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getY()
-    {
-        return $this->y;
-    }
-
-    /**
-     * @param mixed $y
-     */
-    public function setY($y)
-    {
-        $this->y = $y;
     }
 }

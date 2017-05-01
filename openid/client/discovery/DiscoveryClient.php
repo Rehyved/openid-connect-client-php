@@ -62,7 +62,7 @@ class DiscoveryClient
             $response = $request->get();
 
             if ($response->isError()) {
-                return DiscoveryResponse::fromErrorStatus(
+                return DiscoveryResponse::fromHttpStatus(
                     $response->getHttpStatus(),
                     "Error connecting to " . $this->url . ": " . HttpStatus::getReasonPhrase($response->getHttpStatus())
                 );
@@ -85,7 +85,7 @@ class DiscoveryClient
                     $response = $request->get();
 
                     if ($response->isError()) {
-                        return DiscoveryResponse::fromErrorStatus(
+                        return DiscoveryResponse::fromHttpStatus(
                             $response->getHttpStatus(),
                             "Error connecting to " . $jwkUrl . ": " . HttpStatus::getReasonPhrase($response->getHttpStatus())
                         );

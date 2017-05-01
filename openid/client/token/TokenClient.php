@@ -7,6 +7,9 @@ use com\rehyved\openid\client\GrantTypes;
 use http\HttpRequest;
 use http\HttpStatus;
 
+/**
+ * Client for an OpenID Connect/Oauth 2.0 token endpoint
+ */
 class TokenClient
 {
     private $httpRequest;
@@ -15,6 +18,13 @@ class TokenClient
     private $clientId;
     private $clientSecret;
 
+    /**
+     * Initializes a new instance of the TokenClient class
+     * @param string $address
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $style
+     */
     public function __construct(string $address, string $clientId = "", string $clientSecret = "", string $style = "")
     {
         if (empty($address)) {
@@ -36,6 +46,7 @@ class TokenClient
     }
 
     /**
+     * Gets the authentication style
      * @return string
      */
     public function getAuthenticationStyle(): string
@@ -44,6 +55,7 @@ class TokenClient
     }
 
     /**
+     * Sets the authentication style
      * @param string $authenticationStyle
      */
     public function setAuthenticationStyle(string $authenticationStyle)
@@ -52,6 +64,7 @@ class TokenClient
     }
 
     /**
+     * Gets the client id
      * @return string
      */
     public function getClientId(): string
@@ -60,6 +73,7 @@ class TokenClient
     }
 
     /**
+     * Sets the client id
      * @param string $clientId
      */
     public function setClientId(string $clientId)
@@ -68,6 +82,7 @@ class TokenClient
     }
 
     /**
+     * Gets the client secret
      * @return string
      */
     public function getClientSecret(): string
@@ -76,6 +91,7 @@ class TokenClient
     }
 
     /**
+     * Sets the client secret
      * @param string $clientSecret
      */
     public function setClientSecret(string $clientSecret)
@@ -83,11 +99,20 @@ class TokenClient
         $this->clientSecret = $clientSecret;
     }
 
+    /**
+     * Sets the timeout which shall be used for the requests.
+     * @param int $timeout
+     */
     public function setTimeout(int $timeout)
     {
         $this->httpRequest = $this->httpRequest->timeout($timeout);
     }
 
+    /**
+     * Sends a token request
+     * @param array $form
+     * @return TokenResponse
+     */
     public function request(array $form): TokenResponse
     {
         if ($this->authenticationStyle == AuthenticationStyle::BASIC_AUTHENTICATION) {
@@ -102,14 +127,20 @@ class TokenClient
 
                 return TokenResponse::fromResponse($content);
             } else {
-                return TokenResponse::fromErrorStatus($response->getHttpStatus(), HttpStatus::getReasonPhrase($response->getHttpStatus()));
+                return TokenResponse::fromHttpStatus($response->getHttpStatus(), HttpStatus::getReasonPhrase($response->getHttpStatus()));
             }
         } catch (\Exception $e) {
             return TokenResponse::fromException($e);
         }
     }
 
-    public function requestClientCredentials(string $scope = "", array $extra = null)
+    /**
+     * Requests a token based on client credentials
+     * @param string $scope
+     * @param array|null $extra
+     * @return TokenResponse
+     */
+    public function requestClientCredentials(string $scope = "", array $extra = null): TokenResponse
     {
         $fields = array(TokenRequestConstants::GRANT_TYPE, GrantTypes::CLIENT_CREDENTIALS);
 
@@ -120,7 +151,15 @@ class TokenClient
         return $this->request($this->merge($fields, $extra));
     }
 
-    public function requestResourceOwnerPassword($userName, string $password, string $scope = "", array $extra = null)
+    /**
+     * Requests a token using the resource owner password credentials
+     * @param $userName
+     * @param string $password
+     * @param string $scope
+     * @param array|null $extra
+     * @return TokenResponse
+     */
+    public function requestResourceOwnerPassword($userName, string $password, string $scope = "", array $extra = null): TokenResponse
     {
         $fields = array(
             TokenRequestConstants::GRANT_TYPE => GrantTypes::PASSWORD,
@@ -135,7 +174,15 @@ class TokenClient
         return $this->request($this->merge($fields, $extra));
     }
 
-    public function requestAuthorizationCode(string $code, string $redirectUri, string $codeVerifier = "", array $extra)
+    /**
+     * Requests a token using an authorization code
+     * @param string $code
+     * @param string $redirectUri
+     * @param string $codeVerifier
+     * @param array $extra
+     * @return TokenResponse
+     */
+    public function requestAuthorizationCode(string $code, string $redirectUri, string $codeVerifier = "", array $extra): TokenResponse
     {
         $fields = array(
             TokenRequestConstants::GRANT_TYPE => GrantTypes::AUTHORIZATION_CODE,
@@ -150,7 +197,17 @@ class TokenClient
         return $this->request($this->merge($fields, $extra));
     }
 
-    public function requestAuthorizationCodePop(string $code, string $redirectUri, string $codeVerifier = "", string $algorithm = "", string $key = "", array $extra)
+    /**
+     * Requests a PoP token using an authorization code
+     * @param string $code
+     * @param string $redirectUri
+     * @param string $codeVerifier
+     * @param string $algorithm
+     * @param string $key
+     * @param array $extra
+     * @return TokenResponse
+     */
+    public function requestAuthorizationCodePop(string $code, string $redirectUri, string $codeVerifier = "", string $algorithm = "", string $key = "", array $extra): TokenResponse
     {
         $fields = array(
             TokenRequestConstants::TOKEN_TYPE => TokenRequestTypes::POP,
@@ -174,7 +231,13 @@ class TokenClient
         return $this->request($this->merge($fields, $extra));
     }
 
-    public function requestRefreshToken(string $refreshToken, array $extra = null)
+    /**
+     * Requests a token using a refresh token
+     * @param string $refreshToken
+     * @param array|null $extra
+     * @return TokenResponse
+     */
+    public function requestRefreshToken(string $refreshToken, array $extra = null): TokenResponse
     {
         $fields = array(
             TokenRequestConstants::GRANT_TYPE => GrantTypes::REFRESH_TOKEN,
@@ -184,7 +247,15 @@ class TokenClient
         return $this->request($this->merge($fields, $extra));
     }
 
-    public function requestRefreshTokenPop(string $refreshToken, string $algorithm = "", string $key = "", array $extra = null)
+    /**
+     * Requesta a PoP token using a refresh token
+     * @param string $refreshToken
+     * @param string $algorithm
+     * @param string $key
+     * @param array|null $extra
+     * @return TokenResponse
+     */
+    public function requestRefreshTokenPop(string $refreshToken, string $algorithm = "", string $key = "", array $extra = null): TokenResponse
     {
         $fields = array(
             TokenRequestConstants::TOKEN_TYPE => TokenRequestTypes::POP,
@@ -203,7 +274,15 @@ class TokenClient
         return $this->request($this->merge($fields, $extra));
     }
 
-    public function requestAssertion(string $assertionType, string $assertion, string $scope = null, array $extra = null)
+    /**
+     * Requests a token using an assertion
+     * @param string $assertionType
+     * @param string $assertion
+     * @param string|null $scope
+     * @param array|null $extra
+     * @return TokenResponse
+     */
+    public function requestAssertion(string $assertionType, string $assertion, string $scope = null, array $extra = null): TokenResponse
     {
         $fields = array(
             TokenRequestConstants::GRANT_TYPE => $assertionType,
@@ -217,7 +296,14 @@ class TokenClient
         return $this->request($this->merge($fields, $extra));
     }
 
-    public function requestCustomGrant(string $grantType, string $scope = null, array $extra = null)
+    /**
+     * Requests a token using a custom grant
+     * @param string $grantType
+     * @param string|null $scope
+     * @param array|null $extra
+     * @return TokenResponse
+     */
+    public function requestCustomGrant(string $grantType, string $scope = null, array $extra = null): TokenResponse
     {
         $fields = array(
             TokenRequestConstants::GRANT_TYPE => $grantType,
@@ -230,7 +316,12 @@ class TokenClient
         return $this->request($this->merge($fields, $extra));
     }
 
-    public function requestCustom(array $values)
+    /**
+     * Requests a token using a custom request
+     * @param array $values
+     * @return TokenResponse
+     */
+    public function requestCustom(array $values): TokenResponse
     {
         return $this->request($this->merge($values));
     }

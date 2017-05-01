@@ -20,6 +20,11 @@ class Response
     {
     }
 
+    /**
+     * Initializes a the instance of the Response class with a response.
+     * @param string $raw
+     * @return $this
+     */
     public function withResponse(string $raw)
     {
         $this->raw = $raw;
@@ -40,6 +45,11 @@ class Response
         return $this;
     }
 
+    /**
+     * Initializes a the instance of the Response class with an exception.
+     * @param \Exception $exception
+     * @return $this
+     */
     public function withException(\Exception $exception)
     {
         $this->exception = $exception;
@@ -47,7 +57,13 @@ class Response
         return $this;
     }
 
-    public function withErrorStatus(int $statusCode, string $reason)
+    /**
+     * Initializes a the instance of the Response class with an HTTP status code.
+     * @param int $statusCode
+     * @param string $reason
+     * @return $this
+     */
+    public function withHttpStatus(int $statusCode, string $reason)
     {
         $this->httpStatusCode = $statusCode;
         $this->httpErrorReason = $reason;
@@ -58,11 +74,19 @@ class Response
         return $this;
     }
 
+    /**
+     * Gets a value indicating whether an error occurred.
+     * @return bool
+     */
     public function isError(): bool
     {
         return !empty($this->getError());
     }
 
+    /**
+     * Gets the error
+     * @return string
+     */
     public function getError(): string
     {
         if ($this->errorType === ResponseErrorType::HTTP) {
@@ -73,4 +97,68 @@ class Response
 
         return $this->json->{TokenResponseConstants::ERROR};
     }
+
+    /**
+     * Gets the raw protocol response
+     * @return mixed
+     */
+    public function getRaw()
+    {
+        return $this->raw;
+    }
+
+    /**
+     * Gets the protocol response as JSON
+     * @return mixed
+     */
+    public function getJson()
+    {
+        return $this->json;
+    }
+
+    /**
+     * Gets the exception
+     * @return mixed
+     */
+    public function getException()
+    {
+        return $this->exception;
+    }
+
+    /**
+     * Sets the exception
+     * @param mixed $exception
+     */
+    public function setException($exception)
+    {
+        $this->exception = $exception;
+    }
+
+    /**
+     * Gets the type of the error
+     * @return string
+     */
+    public function getErrorType(): string
+    {
+        return $this->errorType;
+    }
+
+    /**
+     * Gets the HTTP status code
+     * @return mixed
+     */
+    public function getHttpStatusCode()
+    {
+        return $this->httpStatusCode;
+    }
+
+    /**
+     * Gets the HTTP error reason
+     * @return mixed
+     */
+    public function getHttpErrorReason()
+    {
+        return $this->httpErrorReason;
+    }
+
 }

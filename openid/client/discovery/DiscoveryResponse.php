@@ -69,7 +69,7 @@ class DiscoveryResponse
         return $result;
     }
 
-    public static function fromErrorStatus(int $statusCode, $reason): DiscoveryResponse
+    public static function fromHttpStatus(int $statusCode, $reason): DiscoveryResponse
     {
         $result = new DiscoveryResponse();
         $result->setIsError(true);

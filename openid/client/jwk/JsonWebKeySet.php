@@ -38,6 +38,7 @@ class JsonWebKeySet
     }
 
     /**
+     * Gets the array of JsonWebKey
      * @return mixed
      */
     public function getKeys()

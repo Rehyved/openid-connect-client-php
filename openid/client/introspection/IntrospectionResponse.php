@@ -36,6 +36,6 @@ class IntrospectionResponse extends Response
     public static function fromErrorStatus(int $statusCode, string $reason)
     {
         $response = new IntrospectionResponse();
-        return $response->withErrorStatus($statusCode, $reason);
+        return $response->withHttpStatus($statusCode, $reason);
     }
 }
