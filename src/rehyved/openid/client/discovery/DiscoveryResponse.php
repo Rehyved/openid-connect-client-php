@@ -7,9 +7,8 @@ use com\rehyved\helper\JsonHelper;
 use com\rehyved\helper\StringHelper;
 use com\rehyved\helper\UrlHelper;
 use com\rehyved\openid\client\jwk\JsonWebKeySet;
-use com\rehyved\openid\client\discovery\DiscoveryConstants;
 use com\rehyved\openid\client\ResponseErrorType;
-use http\HttpStatus;
+use Rehyved\http\HttpStatus;
 
 class DiscoveryResponse
 {

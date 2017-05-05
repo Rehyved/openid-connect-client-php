@@ -6,8 +6,8 @@ use com\rehyved\helper\StringHelper;
 use com\rehyved\helper\UrlHelper;
 use com\rehyved\openid\client\jwk\JsonWebKeySet;
 use com\rehyved\openid\client\discovery\DiscoveryConstants;
-use http\HttpRequest;
-use http\HttpStatus;
+use Rehyved\http\HttpRequest;
+use Rehyved\http\HttpStatus;
 
 class DiscoveryClient
 {

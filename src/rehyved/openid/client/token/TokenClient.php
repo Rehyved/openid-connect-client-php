@@ -4,8 +4,8 @@ namespace com\rehyved\openid\client\token;
 
 
 use com\rehyved\openid\GrantTypes;
-use http\HttpRequest;
-use http\HttpStatus;
+use Rehyved\http\HttpRequest;
+use Rehyved\http\HttpStatus;
 
 /**
  * Client for an OpenID Connect/Oauth 2.0 token endpoint

@@ -2,9 +2,8 @@
 
 namespace com\rehyved\openid\client\token;
 
-
-use http\HttpRequest;
-use http\HttpStatus;
+use Rehyved\http\HttpRequest;
+use Rehyved\http\HttpStatus;
 
 /**
  * Client for an OAuth 2.0 token revocation endpoint

@@ -1,10 +1,9 @@
 <?php
 
 namespace com\rehyved\openid\client\userinfo;
+use Rehyved\http\HttpRequest;
+use Rehyved\http\HttpStatus;
 
-
-use http\HttpRequest;
-use http\HttpStatus;
 
 /**
  * Client for an OpenID Connect userinfo endpoint

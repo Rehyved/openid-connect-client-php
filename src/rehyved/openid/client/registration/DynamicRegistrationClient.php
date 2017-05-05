@@ -1,10 +1,9 @@
 <?php
 
 namespace com\rehyved\openid\client\registration;
+use Rehyved\http\HttpRequest;
+use Rehyved\http\HttpStatus;
 
-
-use http\HttpRequest;
-use http\HttpStatus;
 
 /**
  * Client for the OpenID Connect dynamic client registration endpoint

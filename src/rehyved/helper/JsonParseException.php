@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mpwal
- * Date: 4/30/2017
- * Time: 12:48 AM
- */
 
 namespace com\rehyved\helper;
 

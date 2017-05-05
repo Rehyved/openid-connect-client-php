@@ -4,7 +4,6 @@ namespace com\rehyved\openid\client\jwk;
 
 
 use com\rehyved\helper\JsonHelper;
-use Prophecy\Exception\InvalidArgumentException;
 
 /**
  * Contains a collection of JsonWebKey that can be populated from a json string.

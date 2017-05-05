@@ -2,7 +2,6 @@
 
 namespace com\rehyved\openid\client\introspection;
 
-
 use com\rehyved\openid\client\Response;
 
 class IntrospectionResponse extends Response

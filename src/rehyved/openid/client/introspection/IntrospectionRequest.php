@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mpwal
- * Date: 4/30/2017
- * Time: 8:08 PM
- */
-
 namespace com\rehyved\openid\client\introspection;
 
 

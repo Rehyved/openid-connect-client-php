@@ -5,7 +5,7 @@ namespace com\rehyved\openid\client;
 
 use com\rehyved\helper\JsonHelper;
 use com\rehyved\openid\client\token\TokenResponseConstants;
-use http\HttpStatus;
+use Rehyved\http\HttpStatus;
 
 class Response
 {
