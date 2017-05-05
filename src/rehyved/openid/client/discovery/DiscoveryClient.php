@@ -1,11 +1,11 @@
 <?php
 
-namespace com\rehyved\openid\client\discovery;
+namespace Rehyved\openid\client\discovery;
 
-use com\rehyved\helper\StringHelper;
-use com\rehyved\helper\UrlHelper;
-use com\rehyved\openid\client\jwk\JsonWebKeySet;
-use com\rehyved\openid\client\discovery\DiscoveryConstants;
+use Rehyved\helper\StringHelper;
+use Rehyved\helper\UrlHelper;
+use Rehyved\openid\client\jwk\JsonWebKeySet;
+
 use Rehyved\http\HttpRequest;
 use Rehyved\http\HttpStatus;
 

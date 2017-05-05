@@ -1,8 +1,8 @@
 <?php
 
-namespace com\rehyved\openid\client\userinfo;
+namespace Rehyved\openid\client\userinfo;
 
-use com\rehyved\openid\client\Response;
+use Rehyved\openid\client\Response;
 
 /**
  * Models an OpenID Connect userinfo response

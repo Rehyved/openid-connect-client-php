@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\openid\client\userinfo;
+namespace Rehyved\openid\client\userinfo;
 use Rehyved\http\HttpRequest;
 use Rehyved\http\HttpStatus;
 

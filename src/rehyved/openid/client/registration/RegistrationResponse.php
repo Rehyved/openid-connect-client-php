@@ -1,9 +1,9 @@
 <?php
 
-namespace com\rehyved\openid\client\registration;
+namespace Rehyved\openid\client\registration;
 
 
-use com\rehyved\openid\client\Response;
+use Rehyved\openid\client\Response;
 
 class RegistrationResponse extends Response
 {

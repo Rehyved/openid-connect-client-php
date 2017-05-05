@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\openid\client\token;
+namespace Rehyved\openid\client\token;
 
 /**
  * Models an OAuth 2.0 token revocation request

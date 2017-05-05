@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\openid\client\registration;
+namespace Rehyved\openid\client\registration;
 
 
 class RegistrationResponseConstants

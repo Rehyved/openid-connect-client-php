@@ -1,5 +1,5 @@
 <?php
-namespace com\rehyved\helper;
+namespace Rehyved\helper;
 
 class UrlHelper {
 	const HTTPS_SCHEME = "https";

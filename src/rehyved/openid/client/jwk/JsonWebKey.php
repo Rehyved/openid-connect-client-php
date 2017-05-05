@@ -1,9 +1,9 @@
 <?php
 
-namespace com\rehyved\openid\client\jwk;
+namespace Rehyved\openid\client\jwk;
 
 
-use com\rehyved\helper\Base64Url;
+use Rehyved\helper\Base64Url;
 
 /**
  * Represents a Json Web Key as defined in http://tools.ietf.org/html/rfc7517.

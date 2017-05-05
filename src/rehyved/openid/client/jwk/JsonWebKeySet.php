@@ -1,9 +1,9 @@
 <?php
 
-namespace com\rehyved\openid\client\jwk;
+namespace Rehyved\openid\client\jwk;
 
 
-use com\rehyved\helper\JsonHelper;
+use Rehyved\helper\JsonHelper;
 
 /**
  * Contains a collection of JsonWebKey that can be populated from a json string.

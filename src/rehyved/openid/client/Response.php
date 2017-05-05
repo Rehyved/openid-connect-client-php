@@ -1,10 +1,10 @@
 <?php
 
-namespace com\rehyved\openid\client;
+namespace Rehyved\openid\client;
 
 
-use com\rehyved\helper\JsonHelper;
-use com\rehyved\openid\client\token\TokenResponseConstants;
+use Rehyved\helper\JsonHelper;
+use Rehyved\openid\client\token\TokenResponseConstants;
 use Rehyved\http\HttpStatus;
 
 class Response

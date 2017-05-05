@@ -1,9 +1,9 @@
 <?php
 
-namespace com\rehyved\openid\client\token;
+namespace Rehyved\openid\client\token;
 
 
-use com\rehyved\openid\client\Response;
+use Rehyved\openid\client\Response;
 use Rehyved\http\HttpStatus;
 
 class TokenRevocationResponse extends Response

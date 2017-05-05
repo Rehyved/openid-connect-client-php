@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\openid\client\token;
+namespace Rehyved\openid\client\token;
 
 
 class TokenRevocationConstants

@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\openid\client;
+namespace Rehyved\openid\client;
 
 
 class ResponseErrorType

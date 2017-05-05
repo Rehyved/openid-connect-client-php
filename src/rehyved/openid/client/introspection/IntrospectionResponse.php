@@ -1,8 +1,8 @@
 <?php
 
-namespace com\rehyved\openid\client\introspection;
+namespace Rehyved\openid\client\introspection;
 
-use com\rehyved\openid\client\Response;
+use Rehyved\openid\client\Response;
 
 class IntrospectionResponse extends Response
 {

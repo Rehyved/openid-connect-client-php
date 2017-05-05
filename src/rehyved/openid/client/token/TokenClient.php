@@ -1,9 +1,9 @@
 <?php
 
-namespace com\rehyved\openid\client\token;
+namespace Rehyved\openid\client\token;
 
 
-use com\rehyved\openid\GrantTypes;
+use Rehyved\openid\GrantTypes;
 use Rehyved\http\HttpRequest;
 use Rehyved\http\HttpStatus;
 

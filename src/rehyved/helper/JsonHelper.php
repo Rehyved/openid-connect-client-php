@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\helper;
+namespace Rehyved\helper;
 
 
 class JsonHelper

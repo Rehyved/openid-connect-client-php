@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\openid\client\jwk;
+namespace Rehyved\openid\client\jwk;
 
 /**
  * Constants for JsonWebAlgorithms "kty" Key Type (sec 6.1)

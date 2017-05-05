@@ -1,5 +1,5 @@
 <?php
-namespace com\rehyved\openid\client\introspection;
+namespace Rehyved\openid\client\introspection;
 
 
 class IntrospectionRequest

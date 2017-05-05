@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\openid\client\discovery;
+namespace Rehyved\openid\client\discovery;
 
 class DiscoveryPolicy
 {

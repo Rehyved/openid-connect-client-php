@@ -1,6 +1,6 @@
 <?php
 
-namespace com\rehyved\openid;
+namespace Rehyved\openid;
 
 
 class JwtClaimTypes

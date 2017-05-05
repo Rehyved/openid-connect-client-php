@@ -1,9 +1,9 @@
 <?php
 
-namespace com\rehyved\openid\client\registration;
+namespace Rehyved\openid\client\registration;
 
-use com\rehyved\openid\client\ClientMetadataConstants;
-use com\rehyved\openid\client\jwk\JsonWebKeySet;
+use Rehyved\openid\client\ClientMetadataConstants;
+use Rehyved\openid\client\jwk\JsonWebKeySet;
 
 /**
  * Models an OpenID Connect dynamic client registration request

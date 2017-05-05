@@ -1,9 +1,9 @@
 <?php
 
-namespace com\rehyved\openid\client\discovery;
+namespace Rehyved\openid\client\discovery;
 
 
-use com\rehyved\helper\UrlHelper;
+use Rehyved\helper\UrlHelper;
 
 class DiscoveryUrlHelper
 {
