@@ -38,10 +38,10 @@ class DiscoveryClient
         return array($authority, $discoveryEndpoint);
     }
 
-    public function __construct($authority)
+    public function __construct($authority, $policy = null)
     {
         list($this->authority, $this->url) = $this->parseUrl($authority);
-        $this->policy = new DiscoveryPolicy();
+        $this->policy = $policy ?? new DiscoveryPolicy();
     }
 
     public function get()
