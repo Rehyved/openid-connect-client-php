@@ -92,7 +92,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getApplicationType(): string
+    public function getApplicationType()
     {
         return $this->applicationType;
     }
@@ -108,7 +108,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getContacts(): array
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -124,7 +124,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getClientName(): string
+    public function getClientName()
     {
         return $this->clientName;
     }
@@ -140,7 +140,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getLogoUri(): string
+    public function getLogoUri()
     {
         return $this->logoUri;
     }
@@ -156,7 +156,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getClientUri(): string
+    public function getClientUri()
     {
         return $this->clientUri;
     }
@@ -172,7 +172,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getPolicyUri(): string
+    public function getPolicyUri()
     {
         return $this->policyUri;
     }
@@ -188,7 +188,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getTosUri(): string
+    public function getTosUri()
     {
         return $this->tosUri;
     }
@@ -204,7 +204,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getJwksUri(): string
+    public function getJwksUri()
     {
         return $this->jwksUri;
     }
@@ -220,7 +220,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getJwks(): JsonWebKeySet
+    public function getJwks()
     {
         return $this->jwks;
     }
@@ -236,7 +236,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getSectorIdentifierUri(): string
+    public function getSectorIdentifierUri()
     {
         return $this->sectorIdentifierUri;
     }
@@ -252,7 +252,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getSubjectType(): string
+    public function getSubjectType()
     {
         return $this->subjectType;
     }
@@ -268,7 +268,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getIdentityTokenSignedResponseAlgorithm(): string
+    public function getIdentityTokenSignedResponseAlgorithm()
     {
         return $this->identityTokenSignedResponseAlgorithm;
     }
@@ -284,7 +284,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getIdentityTokenEncryptedResponseAlgorithm(): string
+    public function getIdentityTokenEncryptedResponseAlgorithm()
     {
         return $this->identityTokenEncryptedResponseAlgorithm;
     }
@@ -316,7 +316,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getUserInfoSignedResponseAlgorithm(): string
+    public function getUserInfoSignedResponseAlgorithm()
     {
         return $this->userInfoSignedResponseAlgorithm;
     }
@@ -332,7 +332,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getUserInfoEncryptedResponseAlgorithm(): string
+    public function getUserInfoEncryptedResponseAlgorithm()
     {
         return $this->userInfoEncryptedResponseAlgorithm;
     }
@@ -348,7 +348,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getUserInfoEncryptedResponseEncryption(): string
+    public function getUserInfoEncryptedResponseEncryption()
     {
         return $this->userInfoEncryptedResponseEncryption;
     }
@@ -364,7 +364,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getRequestObjectSigningAlgorithm(): string
+    public function getRequestObjectSigningAlgorithm()
     {
         return $this->requestObjectSigningAlgorithm;
     }
@@ -380,7 +380,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getRequestObjectEncryptionAlgorithm(): string
+    public function getRequestObjectEncryptionAlgorithm()
     {
         return $this->requestObjectEncryptionAlgorithm;
     }
@@ -396,7 +396,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getRequestObjectEncryptionEncryption(): string
+    public function getRequestObjectEncryptionEncryption()
     {
         return $this->requestObjectEncryptionEncryption;
     }
@@ -412,7 +412,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getTokenEndpointAuthenticationMethod(): string
+    public function getTokenEndpointAuthenticationMethod()
     {
         return $this->tokenEndpointAuthenticationMethod;
     }
@@ -428,7 +428,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getTokenEndpointAuthenticationSigningAlgorithm(): string
+    public function getTokenEndpointAuthenticationSigningAlgorithm()
     {
         return $this->tokenEndpointAuthenticationSigningAlgorithm;
     }
@@ -492,7 +492,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getInitiateLoginUri(): string
+    public function getInitiateLoginUri()
     {
         return $this->initiateLoginUri;
     }
@@ -508,7 +508,7 @@ class RegistrationRequest
     /**
      * @return mixed
      */
-    public function getRequestUris(): array
+    public function getRequestUris()
     {
         return $this->requestUris;
     }
