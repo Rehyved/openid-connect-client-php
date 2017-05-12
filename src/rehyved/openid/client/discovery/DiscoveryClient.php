@@ -27,9 +27,9 @@ class DiscoveryClient
         $url = UrlHelper::validateUrl($url);
         $url = UrlHelper::removeTrailingSlash($url);
 
-        if (StringHelper::endsWith($url, DiscoveryConstants::DISCOVERY_ENDPOINT, false)) {
+        if (StringHelper::contains($url, DiscoveryConstants::DISCOVERY_ENDPOINT, false)) {
             $discoveryEndpoint = $url;
-            $authority = substr($url, 0, strlen($url) - strlen(DiscoveryConstants::DISCOVERY_ENDPOINT) - 1);
+            $authority = substr($url, 0, stripos($url, DiscoveryConstants::DISCOVERY_ENDPOINT) - 1);
         } else {
             $authority = $url;
             $discoveryEndpoint = UrlHelper::ensureTrailingSlash($url) . DiscoveryConstants::DISCOVERY_ENDPOINT;
@@ -38,10 +38,10 @@ class DiscoveryClient
         return array($authority, $discoveryEndpoint);
     }
 
-    public function __construct($authority)
+    public function __construct($authority, $policy = null)
     {
         list($this->authority, $this->url) = $this->parseUrl($authority);
-        $this->policy = new DiscoveryPolicy();
+        $this->policy = $policy ?? new DiscoveryPolicy();
     }
 
     public function get()

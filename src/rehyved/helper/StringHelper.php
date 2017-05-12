@@ -27,4 +27,11 @@ class StringHelper
         if ($needleLength > $haystackLength) return false;
         return substr_compare($haystack, $needle, 0, $needleLength, $caseSensitive) === 0;
     }
+
+    public static function contains($haystack, $needle, bool $caseSensitive = true){
+        if(!$caseSensitive){
+            return stripos($haystack, $needle);
+        }
+        return strpos($haystack, $needle);
+}
 }

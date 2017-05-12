@@ -296,7 +296,7 @@ class DiscoveryResponse
     /**
      * @return string
      */
-    public function getRaw(): string
+    public function getRaw()
     {
         return $this->raw;
     }
@@ -312,7 +312,7 @@ class DiscoveryResponse
     /**
      * @return mixed
      */
-    public function getJson(): \stdClass
+    public function getJson()
     {
         return $this->json;
     }
@@ -320,7 +320,7 @@ class DiscoveryResponse
     /**
      * @param mixed $json
      */
-    private function setJson(\stdClass $json)
+    private function setJson($json)
     {
         $this->json = $json;
     }
@@ -360,7 +360,7 @@ class DiscoveryResponse
     /**
      * @return string
      */
-    public function getError(): string
+    public function getError()
     {
         return $this->error;
     }
@@ -376,7 +376,7 @@ class DiscoveryResponse
     /**
      * @return string
      */
-    public function getErrorType(): string
+    public function getErrorType()
     {
         return $this->errorType;
     }
@@ -392,7 +392,7 @@ class DiscoveryResponse
     /**
      * @return \Exception
      */
-    public function getException(): \Exception
+    public function getException()
     {
         return $this->exception;
     }
@@ -408,7 +408,7 @@ class DiscoveryResponse
     /**
      * @return JsonWebKeySet
      */
-    public function getKeySet(): JsonWebKeySet
+    public function getKeySet()
     {
         return $this->keySet;
     }

@@ -52,7 +52,7 @@ class TokenResponse extends Response
      * Gets the access token
      * @return string
      */
-    public function getAccessToken(): string
+    public function getAccessToken()
     {
         return $this->json->{TokenResponseConstants::ACCESS_TOKEN} ?? null;
     }
@@ -61,7 +61,7 @@ class TokenResponse extends Response
      * Gets the identity token
      * @return string
      */
-    public function getIdentityToken(): string
+    public function getIdentityToken()
     {
         return $this->json->{TokenResponseConstants::IDENTITY_TOKEN} ?? null;
     }
@@ -70,7 +70,7 @@ class TokenResponse extends Response
      * Gets the token type
      * @return string
      */
-    public function getTokenType(): string
+    public function getTokenType()
     {
         return $this->json->{TokenResponseConstants::TOKEN_TYPE} ?? null;
     }
@@ -79,7 +79,7 @@ class TokenResponse extends Response
      * Gets the refresh token
      * @return string
      */
-    public function getRefreshToken(): string
+    public function getRefreshToken()
     {
         return $this->json->{TokenResponseConstants::REFRESH_TOKEN} ?? null;
     }
@@ -88,7 +88,7 @@ class TokenResponse extends Response
      * Gets the error description
      * @return string
      */
-    public function getErrorDescription(): string
+    public function getErrorDescription()
     {
         return $this->json->{TokenResponseConstants::ERROR_DESCRIPTION} ?? null;
     }
