@@ -3,11 +3,8 @@
 namespace Rehyved\openid\client\discovery;
 
 use Jose\Factory\JWKFactory;
-use Jose\JWTLoader;
-use Jose\Object\JWKSet;
 use Rehyved\helper\StringHelper;
 use Rehyved\helper\UrlHelper;
-use Rehyved\openid\client\jwk\JsonWebKeySet;
 
 use Rehyved\http\HttpRequest;
 use Rehyved\http\HttpStatus;

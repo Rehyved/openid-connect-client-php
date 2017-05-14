@@ -2,8 +2,8 @@
 
 namespace Rehyved\openid\client\registration;
 
+use Jose\Object\JWKSetInterface;
 use Rehyved\openid\client\ClientMetadataConstants;
-use Rehyved\openid\client\jwk\JsonWebKeySet;
 
 /**
  * Models an OpenID Connect dynamic client registration request
@@ -228,7 +228,7 @@ class RegistrationRequest
     /**
      * @param mixed $jwks
      */
-    public function setJwks(JsonWebKeySet $jwks)
+    public function setJwks(JWKSetInterface $jwks)
     {
         $this->jwks = $jwks;
     }

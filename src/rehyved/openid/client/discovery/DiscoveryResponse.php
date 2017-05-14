@@ -7,7 +7,6 @@ use Jose\Object\JWKSetInterface;
 use Rehyved\helper\JsonHelper;
 use Rehyved\helper\StringHelper;
 use Rehyved\helper\UrlHelper;
-use Rehyved\openid\client\jwk\JsonWebKeySet;
 use Rehyved\openid\client\ResponseErrorType;
 use Rehyved\http\HttpStatus;
 
