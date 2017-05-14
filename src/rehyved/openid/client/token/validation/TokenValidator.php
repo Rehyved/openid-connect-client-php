@@ -36,7 +36,7 @@ class TokenValidator
 
             return $jws;
         } catch (\Exception $e) {
-            throw new TokenValidationException("Token not valid.", $e);
+            throw new TokenValidationException("Token not valid.", 0, $e);
         }
     }
 }
