@@ -5,7 +5,6 @@ namespace Rehyved\openid\client\token\validation;
 
 use Jose\Checker\ClaimCheckerInterface;
 use Jose\Object\JWTInterface;
-use Rehyved\openid\client\token\TokenValidationException;
 use Rehyved\openid\JwtClaimTypes;
 
 class NonceChecker implements ClaimCheckerInterface
