@@ -407,7 +407,7 @@ class DiscoveryResponse
     }
 
     /**
-     * @return JsonWebKeySet
+     * @return JWKSetInterface
      */
     public function getKeySet()
     {
