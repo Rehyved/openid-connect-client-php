@@ -3,6 +3,7 @@
 namespace Rehyved\openid\client\discovery;
 
 
+use Jose\Object\JWKSetInterface;
 use Rehyved\helper\JsonHelper;
 use Rehyved\helper\StringHelper;
 use Rehyved\helper\UrlHelper;
@@ -414,9 +415,9 @@ class DiscoveryResponse
     }
 
     /**
-     * @param JsonWebKeySet $keySet
+     * @param JWKSetInterface $keySet
      */
-    public function setKeySet(JsonWebKeySet $keySet)
+    public function setKeySet(JWKSetInterface $keySet)
     {
         $this->keySet = $keySet;
     }

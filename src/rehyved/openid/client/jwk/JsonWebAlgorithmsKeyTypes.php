@@ -8,7 +8,7 @@ namespace Rehyved\openid\client\jwk;
  */
 class JsonWebAlgorithmsKeyTypes
 {
-    const RSA = "EC";
-    const ELLIPTIC_CURVE = "RSA";
+    const RSA = "RSA";
+    const ELLIPTIC_CURVE = "EC";
     const OCTET = "oct";
 }

@@ -27,17 +27,17 @@ class AuthorizeRequest
         string $nonce,
         array $scopes,
         array $responseTypes,
-        string $responseMode = "form_post",
+        string $responseMode = ResponseModes::FORM_POST,
         array $additionalParameters = array()
     )
     {
         $parameters = array(
-            "client_id" => $clientId,
-            "redirect_uri" => $redirectUri,
-            "nonce" => $nonce,
-            "scope" => implode(" ", $scopes),
-            "response_type" => implode(" ", $responseTypes),
-            "response_mode" => $responseMode
+            AuthorizeRequestConstants::CLIENT_ID => $clientId,
+            AuthorizeRequestConstants::REDIRECT_URI => $redirectUri,
+            AuthorizeRequestConstants::NONCE => $nonce,
+            AuthorizeRequestConstants::SCOPE => implode(" ", $scopes),
+            AuthorizeRequestConstants::RESPONSE_TYPE => implode(" ", $responseTypes),
+            AuthorizeRequestConstants::RESPONSE_MODE => $responseMode
         );
         $parameters = array_merge($parameters, $additionalParameters);
 

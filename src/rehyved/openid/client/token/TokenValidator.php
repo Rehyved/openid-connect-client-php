@@ -3,97 +3,55 @@
 namespace Rehyved\openid\client\token;
 
 
-use Lcobucci\JWT\Parser;
-use Lcobucci\JWT\Signer\Rsa\Sha256;
-use Lcobucci\JWT\Signer\Rsa\Sha384;
-use Lcobucci\JWT\Signer\Rsa\Sha512;
-use Lcobucci\JWT\Token;
-use Lcobucci\JWT\ValidationData;
-use phpseclib\Crypt\RSA;
-use phpseclib\Math\BigInteger;
-use Rehyved\openid\client\jwk\JsonWebKey;
-use Rehyved\openid\client\jwk\JsonWebKeySet;
+use Jose\Loader;
+use Jose\Object\JWKSetInterface;
+use Jose\Object\JWSInterface;
+use Rehyved\openid\client\jwk\JsonWebAlgorithms;
+use Rehyved\openid\JwtClaimTypes;
 
 class TokenValidator
 {
-    public static function parseAndValidate(string $token, JsonWebKeySet $jwks, string $issuer, string $audience, $nonce = null, $jti = null): Token
+    public static function parseAndValidate(string $token, JWKSetInterface $jwks, string $issuer, string $audience, $nonce = null, $jti = null): JWSInterface
     {
-        $token = (new Parser())->parse($token);
+        $loader = new Loader();
+        $jws = $loader->loadAndVerifySignatureUsingKeySet($token, $jwks, JsonWebAlgorithms::all());
 
-        $jwk = TokenValidator::determineJwk($jwks, $token->getHeader("kid"));
-
-        $signer = TokenValidator::determineSigner($token->getHeader("alg"));
-
-        $key = TokenValidator::buildPublicKey($jwk);
-
-        $token->verify($signer, $key);
-
-        $validationData = new ValidationData();
-        $validationData->setIssuer($issuer);
-        $validationData->setAudience($audience);
-        $validationData->setId($jti);
-
-        if ($token->getClaim("nonce") !== $nonce) {
-            throw new TokenValidationException("The nonce in the received token did not match.");
-        }
-
-        if ($token->validate($validationData) === false) {
-            throw new TokenValidationException("The token could not be validated. Issuer, audience or id did not match.");
-        };
-
-
-        return $token;
-    }
-
-    private static function determineJwk(JsonWebKeySet $jwks, $kid)
-    {
-
-        // TODO: expand selection criteria: https://github.com/Spomky-Labs/jose/blob/master/src/Object/BaseJWKSet.php#L169
-        foreach ($jwks->getKeys() as $jwk) {
-            if ($jwk->getKid() === $kid) {
-                return $jwk;
+        if ($jws->hasClaim(JwtClaimTypes::ISSUER)) {
+            $issuerClaim = $jws->getClaim(JwtClaimTypes::ISSUER);
+            if ($issuerClaim !== $issuer) {
+                throw new TokenValidationException("The issuer in the token did not match: " . $issuerClaim);
             }
+        } else {
+            throw new TokenValidationException("The issuer claim '" . JwtClaimTypes::ISSUER . "' was not found in the token.");
         }
-        throw new TokenValidationException("Could not find JWK for token kid: " . $kid);
-    }
 
-    private static function determineSigner(string $alg)
-    {
-        switch ($alg) {
-            case "HS256":
-                return new \Lcobucci\JWT\Signer\Hmac\Sha256();
-            case "HS384":
-                return new \Lcobucci\JWT\Signer\Hmac\Sha384();
-            case "HS512":
-                return new \Lcobucci\JWT\Signer\Hmac\Sha512();
-            case "RS256":
-                return new Sha256();
-            case "RS384":
-                return new Sha384();
-            case "RS512":
-                return new Sha512();
-            case "ES256":
-                return new \Lcobucci\JWT\Signer\Ecdsa\Sha256();
-            case "ES384":
-                return new \Lcobucci\JWT\Signer\Ecdsa\Sha384();
-            case "ES512":
-                return new \Lcobucci\JWT\Signer\Ecdsa\Sha512();
+        if ($jws->hasClaim(JwtClaimTypes::AUDIENCE)) {
+            $audienceClaim = $jws->getClaim(JwtClaimTypes::AUDIENCE);
+            if ($audienceClaim !== $audience) {
+                throw new TokenValidationException("The audience in the token did not match: " . $audienceClaim);
+            }
+        } else {
+            throw new TokenValidationException("The audience claim '" . JwtClaimTypes::AUDIENCE . "' was not found in the token.");
         }
-        throw new TokenValidationException("Algorithm not supported: " . $alg);
-    }
 
-    private static function buildPublicKey(JsonWebKey $jwk)
-    {
-        $exponent = base64_decode($jwk->getE());
-        $modulus = base64_decode($jwk->getN());
+        if ($nonce !== null && $jws->hasClaim(JwtClaimTypes::NONCE)) {
+            $nonceClaim = $jws->getClaim(JwtClaimTypes::NONCE);
+            if ($nonceClaim !== $nonce) {
+                throw new TokenValidationException("The audience in the token did not match: " . $nonceClaim);
+            }
+        } else if ($nonce !== null) {
+            throw new TokenValidationException("The nonce claim '" . JwtClaimTypes::NONCE . "' was not found in the token.");
+        }
 
-        $exponent = new BigInteger($exponent, $jwk->getKeySize());
-        $modulus = new BigInteger($modulus, $jwk->getKeySize());
+        if ($jti !== null && $jws->hasClaim(JwtClaimTypes::JWT_ID)) {
+            $jtiClaim = $jws->getClaim(JwtClaimTypes::JWT_ID);
+            if ($jtiClaim !== $jti) {
+                throw new TokenValidationException("The JWT ID in the token did not match: " . $jtiClaim);
+            }
+        } else if ($jti !== null) {
+            throw new TokenValidationException("The JWT ID claim '" . JwtClaimTypes::JWT_ID . "' was not found in the token.");
+        }
 
-        $rsa = new RSA();
-
-        $rsa->loadKey(array("publicExponent" => $exponent, "modulus" => $modulus));
-
-        return $rsa->getPublicKey();
+        return $jws;
     }
 }

@@ -2,6 +2,9 @@
 
 namespace Rehyved\openid\client\discovery;
 
+use Jose\Factory\JWKFactory;
+use Jose\JWTLoader;
+use Jose\Object\JWKSet;
 use Rehyved\helper\StringHelper;
 use Rehyved\helper\UrlHelper;
 use Rehyved\openid\client\jwk\JsonWebKeySet;
@@ -78,7 +81,10 @@ class DiscoveryClient
 
 
                 if ($jwkUrl != null) {
-                    $request = HttpRequest::create($jwkUrl);
+
+                    $jwkSet = JWKFactory::createFromJKU($jwkUrl);
+
+                    /*$request = HttpRequest::create($jwkUrl);
                     if ($this->timeout !== false) {
                         $request = $request->timeout($this->timeout);
                     }
@@ -90,8 +96,11 @@ class DiscoveryClient
                             "Error connecting to " . $jwkUrl . ": " . HttpStatus::getReasonPhrase($response->getHttpStatus())
                         );
                     }
+
                     $jwk = $response->getContentRaw();
-                    $discoveryResponse->setKeySet(new JsonWebKeySet($jwk));
+                    JWKFactory::*/
+                    //$discoveryResponse->setKeySet(new JsonWebKeySet($jwk));
+                    $discoveryResponse->setKeySet($jwkSet);
                 }
 
                 return $discoveryResponse;
