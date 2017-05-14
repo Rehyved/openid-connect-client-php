@@ -1,6 +1,6 @@
 <?php
 
-namespace Rehyved\openid\client\token;
+namespace Rehyved\openid\client\token\validation;
 
 
 use Jose\Checker\AudienceChecker;
@@ -8,9 +8,6 @@ use Jose\Loader;
 use Jose\Object\JWKSetInterface;
 use Jose\Object\JWSInterface;
 use Rehyved\openid\client\jwk\JsonWebAlgorithms;
-use Rehyved\openid\client\token\validation\IssuerChecker;
-use Rehyved\openid\client\token\validation\JtiChecker;
-use Rehyved\openid\client\token\validation\NonceChecker;
 
 class TokenValidator
 {
