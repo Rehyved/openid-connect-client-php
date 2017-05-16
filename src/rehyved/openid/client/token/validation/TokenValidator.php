@@ -26,7 +26,6 @@ class TokenValidator
                 new IssuerChecker($issuer),
                 new AudienceChecker($audience),
                 'exp',
-                'iat',
                 'nbf',
                 new NonceChecker($nonce),
                 new JtiChecker($jti)
