@@ -3,6 +3,7 @@
 namespace Rehyved\openid\client\token\validation;
 
 
+use Assert\Assertion;
 use Jose\Checker\ClaimCheckerInterface;
 use Jose\Object\JWTInterface;
 
