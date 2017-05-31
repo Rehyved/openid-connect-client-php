@@ -3,7 +3,7 @@
 namespace Rehyved\openid\client\discovery;
 
 
-use Rehyved\helper\UrlHelper;
+use Rehyved\utilities\UrlHelper;
 
 class DiscoveryUrlHelper
 {

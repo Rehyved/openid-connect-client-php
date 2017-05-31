@@ -3,7 +3,7 @@
 namespace Rehyved\openid\client\authorization;
 
 
-use Rehyved\helper\UrlHelper;
+use Rehyved\utilities\UrlHelper;
 use Rehyved\http\HttpStatus;
 
 class AuthorizeRequest

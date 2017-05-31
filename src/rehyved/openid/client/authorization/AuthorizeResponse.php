@@ -3,7 +3,7 @@
 namespace Rehyved\openid\client\authorization;
 
 
-use Rehyved\helper\StringHelper;
+use Rehyved\utilities\StringHelper;
 
 class AuthorizeResponse
 {

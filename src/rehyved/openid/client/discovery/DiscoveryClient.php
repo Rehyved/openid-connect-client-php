@@ -3,8 +3,8 @@
 namespace Rehyved\openid\client\discovery;
 
 use Jose\Factory\JWKFactory;
-use Rehyved\helper\StringHelper;
-use Rehyved\helper\UrlHelper;
+use Rehyved\utilities\StringHelper;
+use Rehyved\utilities\UrlHelper;
 
 use Rehyved\http\HttpRequest;
 use Rehyved\http\HttpStatus;

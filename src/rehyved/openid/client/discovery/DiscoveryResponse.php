@@ -4,9 +4,9 @@ namespace Rehyved\openid\client\discovery;
 
 
 use Jose\Object\JWKSetInterface;
-use Rehyved\helper\JsonHelper;
-use Rehyved\helper\StringHelper;
-use Rehyved\helper\UrlHelper;
+use Rehyved\utilities\JsonHelper;
+use Rehyved\utilities\StringHelper;
+use Rehyved\utilities\UrlHelper;
 use Rehyved\openid\client\ResponseErrorType;
 use Rehyved\http\HttpStatus;
 

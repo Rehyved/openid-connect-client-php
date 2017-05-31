@@ -3,7 +3,7 @@
 namespace Rehyved\openid\client;
 
 
-use Rehyved\helper\JsonHelper;
+use Rehyved\utilities\JsonHelper;
 use Rehyved\openid\client\token\TokenResponseConstants;
 use Rehyved\http\HttpStatus;
 
