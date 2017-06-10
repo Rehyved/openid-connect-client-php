@@ -87,7 +87,7 @@ class Response
      * Gets the error
      * @return string
      */
-    public function getError(): string
+    public function getError()
     {
         if ($this->errorType === ResponseErrorType::HTTP) {
             return $this->httpErrorReason;

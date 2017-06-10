@@ -10,7 +10,7 @@ use Jose\Object\JWTInterface;
 class LenientNotBeforeChecker implements ClaimCheckerInterface
 {
 
-    const DEFAULT_LENIENT_SECONDS = 30;
+    const DEFAULT_LENIENT_SECONDS = 60;
 
     private $lenientSeconds;
 
@@ -32,7 +32,7 @@ class LenientNotBeforeChecker implements ClaimCheckerInterface
             return [];
         }
         $nbf = (int)$jwt->getClaim('nbf');
-        Assertion::lessOrEqualThan($nbf, time() - $this->lenientSeconds, 'The JWT can not be used yet.');
+        Assertion::lessOrEqualThan($nbf, time() + $this->lenientSeconds, 'The JWT can not be used yet.');
         return ['nbf'];
     }
 }

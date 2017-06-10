@@ -182,7 +182,7 @@ class TokenClient
      * @param array $extra
      * @return TokenResponse
      */
-    public function requestAuthorizationCode(string $code, string $redirectUri, string $codeVerifier = "", array $extra): TokenResponse
+    public function requestAuthorizationCode(string $code, string $redirectUri, string $codeVerifier = "", array $extra = array()): TokenResponse
     {
         $fields = array(
             TokenRequestConstants::GRANT_TYPE => GrantTypes::AUTHORIZATION_CODE,
