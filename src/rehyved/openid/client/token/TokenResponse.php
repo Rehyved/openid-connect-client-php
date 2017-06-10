@@ -85,6 +85,15 @@ class TokenResponse extends Response
     }
 
     /**
+     * Gets the refresh token expires in
+     * @return string
+     */
+    public function getRefreshTokenExpiresIn()
+    {
+        return $this->json->{TokenResponseConstants::REFRESH_TOKEN_EXPIRES_IN} ?? null;
+    }
+
+    /**
      * Gets the error description
      * @return string
      */
@@ -100,6 +109,24 @@ class TokenResponse extends Response
     public function getExpiresIn(): int
     {
         return $this->json->{TokenResponseConstants::EXPIRES_IN} ?? 0;
+    }
+
+    /**
+     * Gets the expires on
+     * @return int
+     */
+    public function getExpiresOn(): int
+    {
+        return $this->json->{TokenResponseConstants::EXPIRES_ON} ?? 0;
+    }
+
+    /**
+     * Gets the not before
+     * @return int
+     */
+    public function getNotBefore(): int
+    {
+        return $this->json->{TokenResponseConstants::NOT_BEFORE} ?? 0;
     }
 
 
