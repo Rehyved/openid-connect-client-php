@@ -1,6 +1,6 @@
 <?php
 
-namespace Rehyved\OpenId\Client\Token\validation;
+namespace Rehyved\OpenId\Client\Token\Validation;
 
 
 class TokenValidationException extends \Exception
