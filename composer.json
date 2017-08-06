@@ -22,7 +22,7 @@
     },
 	"autoload": {
         "psr-4": {
-            "Rehyved\\": "src/rehyved"
+            "Rehyved\\": "src/Rehyved"
         }
     }
 }
