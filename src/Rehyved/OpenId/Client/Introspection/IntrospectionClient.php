@@ -2,8 +2,8 @@
 
 namespace Rehyved\OpenId\Client\Introspection;
 
-use Rehyved\http\HttpRequest;
-use Rehyved\http\HttpStatus;
+use Rehyved\Http\HttpRequest;
+use Rehyved\Http\HttpStatus;
 
 class IntrospectionClient
 {

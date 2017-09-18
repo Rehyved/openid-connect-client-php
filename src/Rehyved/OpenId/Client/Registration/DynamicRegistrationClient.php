@@ -1,8 +1,8 @@
 <?php
 
 namespace Rehyved\OpenId\Client\Registration;
-use Rehyved\http\HttpRequest;
-use Rehyved\http\HttpStatus;
+use Rehyved\Http\HttpRequest;
+use Rehyved\Http\HttpStatus;
 
 
 /**

@@ -8,7 +8,7 @@ use Rehyved\Utilities\JsonHelper;
 use Rehyved\Utilities\StringHelper;
 use Rehyved\Utilities\UrlHelper;
 use Rehyved\OpenId\Client\ResponseErrorType;
-use Rehyved\http\HttpStatus;
+use Rehyved\Http\HttpStatus;
 
 class DiscoveryResponse
 {

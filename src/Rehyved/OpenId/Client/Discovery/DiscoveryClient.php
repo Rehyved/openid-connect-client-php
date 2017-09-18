@@ -6,8 +6,8 @@ use Jose\Factory\JWKFactory;
 use Rehyved\Utilities\StringHelper;
 use Rehyved\Utilities\UrlHelper;
 
-use Rehyved\http\HttpRequest;
-use Rehyved\http\HttpStatus;
+use Rehyved\Http\HttpRequest;
+use Rehyved\Http\HttpStatus;
 
 class DiscoveryClient
 {

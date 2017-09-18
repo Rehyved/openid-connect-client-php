@@ -4,7 +4,7 @@ namespace Rehyved\OpenId\Client\Authorization;
 
 
 use Rehyved\Utilities\UrlHelper;
-use Rehyved\http\HttpStatus;
+use Rehyved\Http\HttpStatus;
 
 class AuthorizeRequest
 {

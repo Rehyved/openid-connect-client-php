@@ -4,7 +4,7 @@ namespace Rehyved\OpenId\Client\Token;
 
 
 use Rehyved\OpenId\Client\Response;
-use Rehyved\http\HttpStatus;
+use Rehyved\Http\HttpStatus;
 
 class TokenRevocationResponse extends Response
 {
