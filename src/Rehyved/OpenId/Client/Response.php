@@ -95,7 +95,7 @@ class Response
             return $this->exception->getMessage();
         }
 
-        return $this->json->{TokenResponseConstants::ERROR};
+        return property_exists($this->json, TokenResponseConstants::ERROR) ? $this->json->{TokenResponseConstants::ERROR} : null;
     }
 
     /**
