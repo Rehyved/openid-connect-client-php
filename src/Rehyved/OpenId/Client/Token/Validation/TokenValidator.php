@@ -27,9 +27,13 @@ class TokenValidator
                 new AudienceChecker($audience),
                 'exp',
                 new LenientNotBeforeChecker(),
-                new NonceChecker($nonce),
                 new JtiChecker($jti)
             );
+
+            if($nonce !== null){
+                $claimCheckerList[] = new NonceChecker($nonce);
+            }
+
             $claimChecker = CheckerManagerFactory::createClaimCheckerManager($claimCheckerList);
             $claimChecker->checkJWS($jws, 0);
 

@@ -7,6 +7,7 @@ class DiscoveryPolicy
     private $authority;
 
     private $requireHttps = true;
+    private $allowUnsecuredConnections = false;
     private $allowHttpOnLoopback = true;
     private $loopbackAddresses = array("localhost", "127.0.0.1");
     private $validateIssuerName = true;
@@ -45,6 +46,22 @@ class DiscoveryPolicy
     public function setRequireHttps($requireHttps)
     {
         $this->requireHttps = $requireHttps;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAllowUnsecuredConnections(): bool
+    {
+        return $this->allowUnsecuredConnections;
+    }
+
+    /**
+     * @param bool $allowUnsecuredConnections
+     */
+    public function setAllowUnsecuredConnections(bool $allowUnsecuredConnections)
+    {
+        $this->allowUnsecuredConnections = $allowUnsecuredConnections;
     }
 
     /**

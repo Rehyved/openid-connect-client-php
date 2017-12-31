@@ -79,24 +79,8 @@ class DiscoveryClient
 
                 if ($jwkUrl != null) {
 
-                    $jwkSet = JWKFactory::createFromJKU($jwkUrl);
+                    $jwkSet = JWKFactory::createFromJKU($jwkUrl, $this->policy->isAllowUnsecuredConnections(), null, 86400, $this->policy->isRequireHttps());
 
-                    /*$request = HttpRequest::create($jwkUrl);
-                    if ($this->timeout !== false) {
-                        $request = $request->timeout($this->timeout);
-                    }
-                    $response = $request->get();
-
-                    if ($response->isError()) {
-                        return DiscoveryResponse::fromHttpStatus(
-                            $response->getHttpStatus(),
-                            "Error connecting to " . $jwkUrl . ": " . HttpStatus::getReasonPhrase($response->getHttpStatus())
-                        );
-                    }
-
-                    $jwk = $response->getContentRaw();
-                    JWKFactory::*/
-                    //$discoveryResponse->setKeySet(new JsonWebKeySet($jwk));
                     $discoveryResponse->setKeySet($jwkSet);
                 }
 
