@@ -79,7 +79,7 @@ class DiscoveryClient
 
                 if ($jwkUrl != null) {
 
-                    $jwkSet = JWKFactory::createFromJKU($jwkUrl, $this->policy->isAllowUnsecuredConnections(), null, 86400, $this->policy->isRequireHttps());
+                    $jwkSet = JWKFactory::createFromJKU($jwkUrl, $this->policy->isAllowUnsecuredConnections(), null, 86400, !$this->policy->isRequireHttps());
 
                     $discoveryResponse->setKeySet($jwkSet);
                 }
