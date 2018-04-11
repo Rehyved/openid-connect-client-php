@@ -109,6 +109,15 @@ class TokenClient
     }
 
     /**
+     * Sets the Content-Type header, which shall be used for the requests.
+     * @param string $contentType
+     */
+    public function setContentType(string $contentType)
+    {
+        $this->httpRequest = $this->httpRequest->contentType($contentType);
+    }
+
+    /**
      * Sends a token request
      * @param array $form
      * @return TokenResponse
