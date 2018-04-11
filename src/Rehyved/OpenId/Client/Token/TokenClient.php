@@ -120,7 +120,7 @@ class TokenClient
         }
 
         try {
-            $response = $this->httpRequest->post("", $form);
+            $response = $this->httpRequest->contentType("application/x-www-form-urlencoded")->post("", $form);
 
             if ($response->getHttpStatus() === HttpStatus::OK || $response->getHttpStatus() == HttpStatus::BAD_REQUEST) {
                 $content = $response->getContentRaw();
