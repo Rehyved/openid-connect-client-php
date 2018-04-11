@@ -57,11 +57,11 @@ class IntrospectionClient
         }
 
         try {
-            $response = $this->httpRequest->post('', $form);
+            $response = $this->httpRequest->contentType("application/x-www-form-urlencoded")->post('', $form);
             if (!$response->isError()) {
                 return IntrospectionResponse::fromResponse($response->getContentRaw());
             } else {
-                return IntrospectionResponse::fromErrorCode($response->getHttpStatus(), HttpStatus::getReasonPhrase($response->getHttpStatus()));
+                return IntrospectionResponse::fromErrorStatus($response->getHttpStatus(), HttpStatus::getReasonPhrase($response->getHttpStatus()));
             }
         } catch (\Exception $e) {
             return IntrospectionResponse::fromException($e);

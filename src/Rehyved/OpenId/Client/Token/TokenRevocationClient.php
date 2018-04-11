@@ -71,7 +71,7 @@ class TokenRevocationClient
         }
 
         try {
-            $response = $this->httpRequest->post("", $form);
+            $response = $this->httpRequest->contentType("application/x-www-form-urlencoded")->post("", $form);
             if ($response->getHttpStatus() == HttpStatus::OK) {
                 return new TokenRevocationResponse();
             } else if ($response->getHttpStatus() == HttpStatus::BAD_REQUEST) {
