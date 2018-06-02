@@ -13,7 +13,7 @@
     "require": {
 		"php": ">=7.0",
         "ext-mbstring": "*",
-        "spomky-labs/jose" : "6.1.4",
+        "spomky-labs/jose" : "^7.1.0",
         "rehyved/php-utilities" : ">=0.1.0",
         "rehyved/php-http-client" : ">=0.1.0"
     },
