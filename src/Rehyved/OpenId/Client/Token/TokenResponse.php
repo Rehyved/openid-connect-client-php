@@ -86,7 +86,7 @@ class TokenResponse extends Response
 
     /**
      * Gets the refresh token expires in
-     * @return string
+     * @return int
      */
     public function getRefreshTokenExpiresIn()
     {
