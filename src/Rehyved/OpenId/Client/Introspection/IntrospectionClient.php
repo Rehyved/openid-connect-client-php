@@ -37,7 +37,7 @@ class IntrospectionClient
             throw new \InvalidArgumentException("Request was null");
         }
         if (empty($request->getToken())) {
-            throw new \InvalidArgumentException("Token was null or empty");
+            throw new \InvalidArgumentException("Token was null or empty in provided IntrospectionRequest");
         }
 
         $form = array();

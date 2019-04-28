@@ -3,6 +3,7 @@
 namespace Rehyved\OpenId\Client\Discovery;
 
 use Jose\Factory\JWKFactory;
+use Psr\Cache\CacheItemPoolInterface;
 use Rehyved\Utilities\StringHelper;
 use Rehyved\Utilities\UrlHelper;
 
@@ -18,6 +19,8 @@ class DiscoveryClient
     private $policy;
 
     private $timeout = false;
+
+    private $cache;
 
     public static function parseUrl(string $url)
     {
@@ -38,15 +41,18 @@ class DiscoveryClient
         return array($authority, $discoveryEndpoint);
     }
 
-    public function __construct($authority, $policy = null)
+    public function __construct($authority, $policy = null, CacheItemPoolInterface $cache = null)
     {
         list($this->authority, $this->url) = $this->parseUrl($authority);
         $this->policy = $policy ?? new DiscoveryPolicy();
+        $this->cache = $cache;
     }
 
     public function get()
     {
-        $this->policy->setAuthority($this->authority);
+        if (empty($this->policy->getAuthority())) {
+            $this->policy->setAuthority($this->authority);
+        }
 
         $jwkUrl = "";
 
@@ -79,7 +85,7 @@ class DiscoveryClient
 
                 if ($jwkUrl != null) {
 
-                    $jwkSet = JWKFactory::createFromJKU($jwkUrl, $this->policy->isAllowUnsecuredConnections(), null, 86400, !$this->policy->isRequireHttps());
+                    $jwkSet = JWKFactory::createFromJKU($jwkUrl, $this->policy->isAllowUnsecuredConnections(), $this->cache, 86400, !$this->policy->isRequireHttps());
 
                     $discoveryResponse->setKeySet($jwkSet);
                 }

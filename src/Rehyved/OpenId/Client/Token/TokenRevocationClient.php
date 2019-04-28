@@ -45,7 +45,7 @@ class TokenRevocationClient
      * @param TokenRevocationRequest $request
      * @return TokenRevocationResponse
      */
-    public function revoke(TokenRevocationRequest $request) : TokenRevocationResponse
+    public function revoke(TokenRevocationRequest $request): TokenRevocationResponse
     {
         if ($request === null) {
             throw new \InvalidArgumentException("TokenRevocationRequest was null");
@@ -82,6 +82,39 @@ class TokenRevocationClient
         } catch (\Exception $e) {
             return TokenRevocationResponse::fromException($e);
         }
+    }
+
+    /**
+     * @param string $token
+     * @param string $tokenTypeHint
+     * @return TokenRevocationResponse
+     */
+    private function revokeTokenOfType(string $token, string $tokenTypeHint): TokenRevocationResponse
+    {
+        $tokenRevocationRequest = new TokenRevocationRequest();
+        $tokenRevocationRequest->setToken($token);
+        $tokenRevocationRequest->setTokenTypeHint($tokenTypeHint);
+        return $this->revoke($tokenRevocationRequest);
+    }
+
+    /**
+     * Revokes an access token
+     * @param string $token
+     * @return TokenRevocationResponse
+     */
+    public function revokeAccessTokenAsync(string $token): TokenRevocationResponse
+    {
+        return $this->revokeTokenOfType($token, "access_token");
+    }
+
+    /**
+     * Revokes a refresh token
+     * @param string $token
+     * @return TokenRevocationResponse
+     */
+    public function revokeRefreshTokenAsync(string $token): TokenRevocationResponse
+    {
+        return $this->revokeTokenOfType($token, "refresh_token");
     }
 
     /**
