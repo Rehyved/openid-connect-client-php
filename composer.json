@@ -18,7 +18,6 @@
     "php": ">=7.0",
     "ext-mbstring": "*",
     "ext-json": "*",
-    "spomky-labs/jose": "^7.1.0",
     "rehyved/php-utilities": ">=0.1.0",
     "rehyved/php-http-client": ">=0.1.0"
   },
