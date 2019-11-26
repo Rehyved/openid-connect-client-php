@@ -104,6 +104,7 @@ class TokenResponse extends Response
 
     /**
      * Gets the expires in
+     * This is a recommended field following RFC 6749 and should always be available.
      * @return int
      */
     public function getExpiresIn(): int
@@ -115,18 +116,18 @@ class TokenResponse extends Response
      * Gets the expires on
      * @return int
      */
-    public function getExpiresOn(): int
+    public function getExpiresOn()
     {
-        return $this->json->{TokenResponseConstants::EXPIRES_ON} ?? 0;
+        return $this->json->{TokenResponseConstants::EXPIRES_ON} ?? null;
     }
 
     /**
      * Gets the not before
      * @return int
      */
-    public function getNotBefore(): int
+    public function getNotBefore()
     {
-        return $this->json->{TokenResponseConstants::NOT_BEFORE} ?? 0;
+        return $this->json->{TokenResponseConstants::NOT_BEFORE} ?? null;
     }
 
 

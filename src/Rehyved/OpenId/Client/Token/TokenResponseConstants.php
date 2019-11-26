@@ -15,5 +15,4 @@ class TokenResponseConstants
     const IDENTITY_TOKEN = "id_token";
     const ERROR = "error";
     const ERROR_DESCRIPTION = "error_description";
-    const BEARER_TOKEN_TYPE = "Bearer";
 }
